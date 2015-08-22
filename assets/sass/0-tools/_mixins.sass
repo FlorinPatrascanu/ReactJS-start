@@ -1,0 +1,73 @@
+=h-nav($pad: 0px)
+	+clearfix
+	list-style-type: none
+	padding-left: $pad
+	li 
+		float: left
+=v-nav	
+	list-style-type: none
+	li
+		float: none	
+=justify-nav
+	ul
+		list-style-type: none
+	li
+		display: table-cell
+=default-input
+	+input-size(".form-control", 1.2em, 0.2em, 0.5em, 1em, 1.4, 0)
+	border-width: 1px
+
+
+=box-normal
+	img
+		margin-bottom: 1em
+=box-img-only($title: title, $button: button, $spacing: $spacing)	
+	position: relative
+	+clearfix
+	img
+		margin: 0px
+		padding: 0px
+	@if $title == title
+		.title
+			position: absolute
+			top: 0px
+			left: 0px
+			width: 100%
+			padding: $spacing 2*$spacing
+	@if $button == button
+		.button
+			position: absolute
+			bottom: $spacing
+			left: 2*$spacing
+			
+
+
+
+
+		
+
+
+
+
+=nav-level-1 ($bg-color: #fff, $color: $accent, $hover-bg-color: $accent, $hover-color: #fff)
+	display: inline-block
+	padding: 0.2em 1em
+	background-color: $bg-color
+	color: $color
+	&:hover
+		background-color: $hover-bg-color
+		color: $hover-color
+	&.active
+		background-color: $hover-bg-color
+		color: $hover-color
+=nav-level-2 ($bg-color: transparent, $color: $accent, $hover-bg-color: transparent, $hover-color: #fff)
+	display: inline-block
+	padding: 0.2em 1em
+	background-color: $bg-color
+	color: $color
+	&:hover
+		background-color: $hover-bg-color
+		color: $hover-color
+	&.active
+		background-color: $hover-bg-color
+		color: $hover-color	

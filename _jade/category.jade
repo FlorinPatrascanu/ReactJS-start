@@ -1,0 +1,86 @@
+extend jade.resources/layout/master
+
+block content
+	.container.wrapper
+		.category-page
+			.category-banner
+				a(href='#')
+					img(src='http://placehold.it/1500x300/FAFAFA/000000')
+			include jade.resources/partials/breadcrumbs.jade
+			h1.block-header.category-header Women clothing
+			.aside-category.filter-vertical
+				p.block-header.filter-header Filter
+				ul.filter-list
+					li.filter-item.manufacturer
+						p.filter-title Manufacturer
+						ul
+							for brand in brands.brands
+								li
+									a(href='#') #{brand}
+					li.filter-item.brands
+						p.filter-title Brands
+						ul
+							for brand in brands.brands
+								li
+									a(href='#') #{brand}
+					li.filter-item.colors
+						p.filter-title Colors
+						ul
+							for color in colors.colors
+								li
+									a(href='#' style='background-color:#{color}') #{color}
+					li.filter-item.summerwear
+						p.filter-title Summer Wear
+						ul
+							for brand in brands.brands
+								li
+									a(href='#') #{brand}
+					li
+						a(href="#" class='cancel-filters') Cancel filters
+			.main
+				.sort-block
+					p 30 Products Found
+					.view
+						p View
+						a(href='#' class='active') 50
+						a(href='#') All
+					.pagination
+						ul
+							li.active
+								a(href='#') 1
+							li
+								a(href='#') 2
+							li
+								a(href='#') 3
+							li
+								a(href='#') 4
+							li
+								a(href='#') Next
+					.sort
+						select(class='form-control')
+							each sortItem, i in sort.sort
+								option(value=i) #{sortItem}
+				.product-list
+					+product-list(32)
+				.sort-block
+					p 30 Products Found
+					.view
+						p View
+						a(href='#' class='active') 50
+						a(href='#') All
+					.pagination
+						ul
+							li.active
+								a(href='#') 1
+							li
+								a(href='#') 2
+							li
+								a(href='#') 3
+							li
+								a(href='#') 4
+							li
+								a(href='#') Next
+					.sort
+						select(class='form-control')
+							each sortItem, i in sort.sort
+								option(value=i) #{sortItem}

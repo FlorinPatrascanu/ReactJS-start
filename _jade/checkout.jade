@@ -1,0 +1,327 @@
+extend jade.resources/layout/master
+block content
+  .container.wrapper
+    .category-page      
+      h1.block-header.category-header.center-header Finalizeaza comanda
+  .wrapper-fix    
+    section.checkout           
+      .checkout-content       
+        .invoice
+          .xlg-container
+            .xlg-column
+              p.checkout-headline 1. Adresa de facturare                        
+              a.auth-clients(href='javascript:void(0);') Autentificare pentru clienti deja existenti                        
+              .checkout-login-container
+                .checkout-login
+                  .login-box
+                    p.headline Intra in cont                                    
+                    form#login(name='ExtUserForm', method='post', action='/')
+                      input(type='hidden', name='ID', value='1')                                        
+                      input(type='hidden', name='DWExtranetUsernameRemember', value='True')                                        
+                      input(type='hidden', name='DWExtranetPasswordRemember', value='True')                                        
+                      .form-group
+                        input(type='email', name='username', placeholder='Email')                                        
+                      .form-group
+                        input(type='password', name='password', placeholder='Parola')                                        
+                      .form-group
+                        button.login(type='submit', value='Login') Login                                        
+                      p(style='margin-bottom: 0px;')
+                        | Nu ai un cont ? 
+                        a(href='Default.aspx?ID=14') Inregistreaza-te acum
+                        | !                                                                                                    
+                  .checkout-social-login
+                    p.headline Autentifica-te alte conturi                                                                      
+                    .login-social-box
+                      .social-login
+                        a.facebook-login(href='javascript:void(0);') Facebook                                              
+                        a.google-login(href='javascript:void(0);') Google+            
+              form#ordersubmit1(name='ordersubmit', method='post')               
+                input(type='hidden', name='CartV2.GotoStep1', id='CartV2.GotoStep1', value='true')                      
+                .invoice-type
+                  input(type='radio', name='factura', ident='natural', checked='checked')                            
+                  label(for='persoana-fizica') Persoana Fizica                            
+                  br                                                           
+                  input(type='radio', name='factura', ident='legal')                            
+                  label(for='persoana-juridica') Persoana Juridica               
+                .form-group
+                  label(for='prenume') Prenume                          
+                  input(type='text', name='EcomOrderCustomerName', data-required='1', ident='billingName', copy='1')                      
+                .form-group
+                  label(for='nume') Nume                          
+                  input(type='text', name='EcomOrderCustomerSurname', data-required='1', ident='billingSurname', copy='1')                                                       
+                .legal(style='display: none;')
+                  .form-group
+                    label(for='prenume') Nume firma                              
+                    input(type='text', name='EcomOrderCustomerCompany', data-required='1', ident='billingCompanyLegal')                          
+                  .form-group
+                    label(for='cui') CUI                              
+                    input(type='text', name='EcomOrderCustomerVatRegNumber', data-required='1', ident='billingCuiLegal')                                          
+                  .form-group
+                    label(for='registru') Reg.Com                              
+                    input(type='text', name='EcomOrderCustomerRefID', data-required='1', ident='billingRegLegal')                                          
+                  .form-group
+                    label(for='cont') Cont                              
+                    input(type='text', name='EcomOrderCustomerEAN', data-required='1', ident='billingAccountLegal')                                          
+                  .form-group
+                    label(for='banca') Banca                              
+                    input(type='text', name='EcomOrderCustomerFax', data-required='1', ident='billingBankLegal')                      
+                .form-group
+                  label(for='telefon') Telefon                          
+                  input(type='text', name='EcomOrderCustomerPhone', data-required='1', ident='billingPhone', copy='1')                      
+                .form-group
+                  label(for='email') Email                          
+                  input(type='text', name='EcomOrderCustomerEmail', data-required='1', ident='billingEmail', copy='1')                                        
+                .form-group
+                  label(for='address') Adresa                          
+                  input(type='text', name='EcomOrderCustomerAddress', data-required='1', copy='1', ident='billingAddress')                                        
+                .form-group
+                  label(for='judet') Judet                          
+                  select(name='EcomOrderCustomerRegion', ident='billingRegion', observer='1', data-required='1', copy='1')
+                    option(value='selectati') Selectati un judet
+                    option(value='Alba') Alba
+                    option(value='Arad') Arad
+                    option(value='Arges') Arges
+                    option(value='Bacau') Bacau
+                    option(value='Bihor') Bihor
+                    option(value='Bistrita-Nasaud') Bistrita-Nasaud
+                    option(value='Botosani') Botosani
+                    option(value='Braila') Braila
+                    option(value='Brasov') Brasov
+                    option(value='Bucuresti') Bucuresti
+                    option(value='Buzau') Buzau
+                    option(value='Calarasi') Calarasi
+                    option(value='Caras-Severin') Caras-Severin
+                    option(value='Cluj') Cluj
+                    option(value='Constanta') Constanta
+                    option(value='Covasna') Covasna
+                    option(value='Dambovita') Dambovita
+                    option(value='Dolj') Dolj
+                    option(value='Galati') Galati
+                    option(value='Giurgiu') Giurgiu
+                    option(value='Gorj') Gorj
+                    option(value='Harghita') Harghita
+                    option(value='Hunedoara') Hunedoara
+                    option(value='Ialomita') Ialomita
+                    option(value='Iasi') Iasi
+                    option(value='Ilfov') Ilfov
+                    option(value='Maramures') Maramures
+                    option(value='Mehedinti') Mehedinti
+                    option(value='Mures') Mures
+                    option(value='Neamt') Neamt
+                    option(value='Olt') Olt
+                    option(value='Prahova') Prahova
+                    option(value='Salaj') Salaj
+                    option(value='Satu Mare') Satu Mare
+                    option(value='Sibiu') Sibiu
+                    option(value='Suceava') Suceava
+                    option(value='Teleorman') Teleorman
+                    option(value='Timis') Timis
+                    option(value='Tulcea') Tulcea
+                    option(value='Valcea') Valcea
+                    option(value='Vaslui') Vaslui
+                    option(value='Vrancea') Vrancea                                       
+                div(ident='billingCityContainer', style='display: none;')
+                  .form-group
+                    label(for='localitate') Oras                              
+                    input(type='text', name='EcomOrderCustomerCity', ident='billingCity', data-required='1', copy='1')                
+            .xlg-column
+              p.checkout-headline 2. Date de livrare                    
+              .form-group
+                input#is_delivery(type='checkbox', checked='')                        
+                label.address Adresa de livrare este aceasi cu cea de facturare.             
+              .invoice(ident='deliveryContainer', style='display: none;')
+                .form-group
+                  label(for='nume') Prenume                            
+                  input(type='text', name='EcomOrderDeliveryName', data-required='1', ident='deliveryName')                                           
+                .form-group
+                  label(for='nume') Nume                            
+                  input(type='text', name='EcomOrderDeliverySurname', data-required='1', ident='deliverySurname')                                           
+                .form-group
+                  label(for='telefon') Telefon                            
+                  input(type='text', name='EcomOrderDeliveryPhone', data-required='1', ident='deliveryPhone')                                           
+                .form-group
+                  label(for='email') Email                            
+                  input(type='text', name='EcomOrderDeliveryEmail', data-required='1', ident='deliveryEmail')                                           
+                .form-group
+                  label(for='address') Adresa                            
+                  input(type='text', name='EcomOrderDeliveryAddress', data-required='1', ident='deliveryAddress')                                           
+                .form-group
+                  label(for='delivery_state') Judet                            
+                  select(name='EcomOrderDeliveryRegion', ident='deliveryRegion', observer='1', data-required='1', copy='undefined')
+                    option(value='selectati') Selectati un judet
+                    option(value='Alba') Alba
+                    option(value='Arad') Arad
+                    option(value='Arges') Arges
+                    option(value='Bacau') Bacau
+                    option(value='Bihor') Bihor
+                    option(value='Bistrita-Nasaud') Bistrita-Nasaud
+                    option(value='Botosani') Botosani
+                    option(value='Braila') Braila
+                    option(value='Brasov') Brasov
+                    option(value='Bucuresti') Bucuresti
+                    option(value='Buzau') Buzau
+                    option(value='Calarasi') Calarasi
+                    option(value='Caras-Severin') Caras-Severin
+                    option(value='Cluj') Cluj
+                    option(value='Constanta') Constanta
+                    option(value='Covasna') Covasna
+                    option(value='Dambovita') Dambovita
+                    option(value='Dolj') Dolj
+                    option(value='Galati') Galati
+                    option(value='Giurgiu') Giurgiu
+                    option(value='Gorj') Gorj
+                    option(value='Harghita') Harghita
+                    option(value='Hunedoara') Hunedoara
+                    option(value='Ialomita') Ialomita
+                    option(value='Iasi') Iasi
+                    option(value='Ilfov') Ilfov
+                    option(value='Maramures') Maramures
+                    option(value='Mehedinti') Mehedinti
+                    option(value='Mures') Mures
+                    option(value='Neamt') Neamt
+                    option(value='Olt') Olt
+                    option(value='Prahova') Prahova
+                    option(value='Salaj') Salaj
+                    option(value='Satu Mare') Satu Mare
+                    option(value='Sibiu') Sibiu
+                    option(value='Suceava') Suceava
+                    option(value='Teleorman') Teleorman
+                    option(value='Timis') Timis
+                    option(value='Tulcea') Tulcea
+                    option(value='Valcea') Valcea
+                    option(value='Vaslui') Vaslui
+                    option(value='Vrancea') Vrancea                                           
+                div(ident='deliveryCityContainer')
+                  .form-group
+                    label(for='delivery_city') Oras                                
+                    input(type='text', name='EcomOrderDeliveryCity', data-required='1', ident='deliveryCity')            
+          .xlg-container
+            .xlg-column
+              #metodaDePlata.metoda-plata
+                .checkout-headline
+                  p 3. Metoda de plata
+                  a(href='javascript:void(0);', data-toggle='modal', data-target='#plataInfo') Despre metodele de plata                        
+                .transport-box
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY29', ident='payMethod', data='magazin')                                  
+                      label Plata numerar in magazin                              
+                    .transport-detail
+                      p Plata numerar in magazin                          
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY21', ident='payMethod', data='ramburs')                                  
+                      label Plata Ramburs                              
+                    .transport-detail
+                      p                          
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY25', ident='payMethod', data='card')                                  
+                      label Plata cu card                              
+                    .transport-detail
+                      p Plata cu cardul prin PayU. Visa, MasterCard, EuroCard                          
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY24', ident='payMethod', data='card')                                  
+                      label PayPal                              
+                    .transport-detail
+                      p Plata online cu cont PayPal                          
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY26', ident='payMethod', data='card')                                  
+                      label Transfer bancar                              
+                    .transport-detail
+                      p Plata prin transfer bancar prin ING Bank, BRD, BT                          
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY23', ident='payMethod', data='card')                                  
+                      label Plata in rate CardAvantaj                              
+                    .transport-detail
+                      p Plata in rate cu CardAvantaj                          
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY27', ident='payMethod', data='card')                                  
+                      label Plata in rate cu Star BT                              
+                    .transport-detail
+                      p Plata in rate cu card Banca Transilvania                          
+                  div(ident='payMethodContainer')
+                    .plati
+                      input(type='radio', name='EcomCartPaymethodID', value='PAY28', ident='payMethod', data='card')                                  
+                      label Plata in rate cu BRD Finance                              
+                    .transport-detail
+                      p Plata online cu card BRD             
+            .xlg-column
+              #transport.transport
+                .checkout-headline
+                  p 4. Livrare
+                  a(href='javascript:void(0);', data-toggle='modal', data-target='#livrareInfo') Despre metodele de livrare                        
+                .transport-box
+                  div(ident='shippingMethodContainer')
+                    .livrare
+                      input(type='radio', name='EcomCartShippingmethodID', value='SHIP19', pret_transport='0', nume_transport='Transport Bucuresti', ident='shippingMethod', data='card-bucuresti')                                    
+                      label Transport Bucuresti                                
+                    .transport-detail
+                      p Transport Bucuresti                            
+                  div(ident='shippingMethodContainer')
+                    .livrare
+                      input(type='radio', name='EcomCartShippingmethodID', value='SHIP20', pret_transport='0', nume_transport='Transport Bucuresti cu plata ramburs', ident='shippingMethod', data='ramburs-bucuresti')                                    
+                      label Transport Bucuresti cu plata ramburs                                
+                    .transport-detail
+                      p Transport Bucuresti cu plata ramburs                            
+                  div(ident='shippingMethodContainer')
+                    .livrare
+                      input(type='radio', name='EcomCartShippingmethodID', value='SHIP14', pret_transport='0', nume_transport='Transport curier', ident='shippingMethod', data='card-provincie')                                    
+                      label Transport curier                                
+                    .transport-detail
+                      p Transport curier                            
+                  div(ident='shippingMethodContainer')
+                    .livrare
+                      input(type='radio', name='EcomCartShippingmethodID', value='SHIP18', pret_transport='0', nume_transport='Transport curier cu plata ramburs', ident='shippingMethod', data='ramburs-provincie')                                    
+                      label Transport curier cu plata ramburs                                
+                    .transport-detail
+                      p Transport curier cu plata ramburs 
+          .coupon
+            p.checkout-headline Cupon                                
+            label(for='coupon') Cod Cupon                
+            input#EcomOrderVoucherCode(type='text', name='EcomOrderVoucherCode', value='')                
+            a#validate_voucher.check_voucher(href='#', voucher_value='') Adauga la comanda            
+          .checkout-comment
+            p.checkout-headline Adauga un comentariu:                
+            textarea#EcomOrderCustomerComment(rows='6', name='EcomOrderCustomerComment')            
+          .total
+            p.pull-left Total                
+            p#total.pull-right.total-sum 1.266 Lei            
+          .finish
+            input#customerAccepted.pull-left(type='checkbox')                  
+            p.pull-left
+              | Sunt de acord cu 
+              a.links(href='', data-toggle='modal', data-target='#terms') termenii si conditiile.                           
+            input#submitter.place-order(type='submit', value='Plaseaza comanda')    
+      .checkout-detail
+        .detail-wrap
+          .checkout-headline
+            p Comanda ta
+            a.edit(href='/Cart') Editeaza comanda          
+          ul
+            li
+              p.subtotal-pay
+                | Subtotal
+                span 1.266 Lei              
+            li
+              p
+                | Livrare 
+                span#transport_value          
+          p
+            | Metoda de plata: 
+            a#metoda_plata(href='/Cart/Checkout#metodaDePlata') alege o metoda de plata          
+          p
+            | Metoda de livrare: 
+            a#metoda_livrare(href='/Cart/Checkout#transport') alege o metoda de livrare                            
+          p.total-pay
+            | Total 
+            span#total_comanda(valoare_comanda='1.266') 1.266 Lei
+          |  
+          | &#x9;                    
+          a.links(href='', data-toggle='modal', data-target='#terms') Termeni si conditii          
+          a.links(href='', data-toggle='modal', data-target='#retur') Politica de returnare          
+          .clearfix

@@ -1,0 +1,22 @@
+extend jade.resources/layout/master
+block content
+	.container.wrapper
+		.cart-page
+			include jade.resources/partials/breadcrumbs.jade
+			.cart-header
+				p Shopping cart
+				p Price per unit
+				p Quantity
+				p Total Price
+			.cart-content
+				.cart-row
+					.cart-item-title
+						p Shopping Cart
+					.cart-item-priceunit
+						p Price per unit
+					.cart-item-quantity
+						p Quantity
+					.cart-item-total
+						p Total price
+			.cart-totals
+				p Subtotal <span> This will bring you 12 loyality points </span>		 

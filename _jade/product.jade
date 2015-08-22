@@ -1,0 +1,123 @@
+extend jade.resources/layout/master
+block content
+	.container.wrapper
+		.product-page
+			include jade.resources/partials/breadcrumbs.jade
+			.product-item
+				.product-image
+					.main-image
+						img(src='http://placehold.it/800x800/FFFFFF/000000')
+					.thumbnails
+						ul
+							li 
+								+contentBox("banner","300x300/FFFFFF/000000")
+							li 
+								+contentBox("banner","300x300/FFFFFF/000000")
+							li 
+								+contentBox("banner","300x300/FFFFFF/000000")
+							li 
+								+contentBox("banner","300x300/FFFFFF/000000")
+				.product-content
+					p.product-code
+						| Product code: 15SKI-TAE
+					h1.product-title
+						| ARMADA ARVti Sky 14/15
+					.comment-block
+						.rating-block
+							img(src='assets/img/star.png')
+							img(src='assets/img/star.png')
+							img(src='assets/img/star.png')
+							img(src='assets/img/star.png')
+							img(src='assets/img/star.png')
+						a(href='#' class='write-review') Write a review 
+						a(href='#' class='add-to-wishlist') Add to wishlist
+					.product-info-main
+						p.price 340 <sup> Euro | includes VAT </sup>						
+						p.old-price reduced price from 
+							span 485 <sup> Euro </sup>
+						p List price: 600 <sup> Euro </sup> / 2.700 <sup> RON </sup>	
+					.product-info-secondary
+						p.headline Women Product
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris arcu, lacinia et dignissim at, mattis porta dolor. Sed eu sagittis nisi.						
+						a(href='#' class='') View Manufacturer Page
+					.product-options
+						.variant-container.variant-box
+							.variant-content
+								p 1. Pick a size							
+								+variant-size()
+						.variant-container.variant-box
+							.variant-content
+								p 1. Pick a season							
+								+variant-season()
+						.variant-container.variant-select
+							.variant-content
+								p 2. Pick a color
+								+variant-color()
+						.variant-container.submit-order
+							.variant-content
+								.variant-selector(data-role='variant-selector' data-priority='99' data-tooltip='Please fill in the options')
+									p 3.
+									button(class='add-to-basket' data-value='' data-role='submit') Add to basket
+									p QTY:
+										input(type='number' value='1')
+						.extras
+							ul
+								li
+									+contentBox("banner","300x300/FAFAFA/000000")
+								li
+									+contentBox("banner","300x300/FAFAFA/000000")
+								li
+									+contentBox("banner","300x300/FAFAFA/000000")
+								li
+									+contentBox("banner","300x300/FAFAFA/000000")
+								li
+									+contentBox("banner","300x300/FAFAFA/000000")
+							p Phone us at: <span> +40722222222	+40733333333 </span> or 
+								a(href='#') contact our team
+				.product-tab-header
+					ul
+						li(data-toggle='tab' class='active')
+							a(href='#description' data-toggle='tab') Product Description
+						li(data-toggle='tab')
+							a(href='#specifications' data-toggle='tab') Specifications
+						li(data-toggle='tab')
+							a(href='#delivery' data-toggle='tab') Delivery Options			
+				.tab-content
+					#description.product-description.tab-pane.active
+						h3 This is a headline
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris arcu, lacinia et dignissim at, mattis porta dolor. Sed eu sagittis nisi. Proin bibendum sapien vitae sem posuere gravida. Phasellus fringilla, ex et ultricies commodo, leo arcu suscipit tortor, hendrerit mollis magna purus id velit. Fusce est dolor, pellentesque et neque vitae, commodo volutpat libero. Sed ut urna non eros posuere tristique. Nam id lacus non risus suscipit tincidunt. Aenean nisl eros, vehicula luctus maximus non, rhoncus et dolor.
+						img(src='http://placehold.it/300x300' class='inline-element')
+						p Varius nulla, id faucibus felis congue sit amet. Nam quis mollis tortor, porta vulputate massa. Cras malesuada lorem mi. Mauris placerat at nibh vel pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras at tristique arcu, id hendrerit massa. Pellentesque et nulla est. Proin dapibus neque odio, a iaculis erat convallis eu. Nullam ultrices rhoncus magna, sed pellentesque velit condimentum in. Pellentesque in quam libero. Nunc vel consequat urna. Etiam pellentesque dui bibendum egestas malesuada. Vestibulum nulla magna, bibendum non massa sit amet, bibendum mattis sem. Fusce pretium et ipsum sit amet ultrices. Cras dictum enim eu vehicula feugiat.
+
+						p Hendrerit egestas tempor. Quisque porttitor porttitor egestas. Quisque faucibus tempus nisl id ultricies. Etiam eget velit bibendum, convallis massa et, mattis odio. Nam sit amet dui mauris. In sed metus ut justo commodo lobortis. Curabitur dictum lorem quis dictum tincidunt. In condimentum lorem ante, at rutrum neque egestas at.
+
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris arcu, lacinia et dignissim at, mattis porta dolor. Sed eu sagittis nisi. Proin bibendum sapien vitae sem posuere gravida. Phasellus fringilla, ex et ultricies commodo, leo arcu suscipit tortor, hendrerit mollis magna purus id velit. Fusce est dolor, pellentesque et neque vitae, commodo volutpat libero. Sed ut urna non eros posuere tristique. Nam id lacus non risus suscipit tincidunt. Aenean nisl eros, vehicula luctus maximus non, rhoncus et dolor.
+
+						img(src='http://placehold.it/300x300' class='inline-element')
+
+						p Varius nulla, id faucibus felis congue sit amet. Nam quis mollis tortor, porta vulputate massa. Cras malesuada lorem mi. Mauris placerat at nibh vel pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras at tristique arcu, id hendrerit massa. Pellentesque et nulla est. Proin dapibus neque odio, a iaculis erat convallis eu. Nullam ultrices rhoncus magna, sed pellentesque velit condimentum in. Pellentesque in quam libero. Nunc vel consequat urna. Etiam pellentesque dui bibendum egestas malesuada. Vestibulum nulla magna, bibendum non massa sit amet, bibendum mattis sem. Fusce pretium et ipsum sit amet ultrices. Cras dictum enim eu vehicula feugiat.
+
+						p Hendrerit egestas tempor. Quisque porttitor porttitor egestas. Quisque faucibus tempus nisl id ultricies. Etiam eget velit bibendum, convallis massa et, mattis odio. Nam sit amet dui mauris. In sed metus ut justo commodo lobortis. Curabitur dictum lorem quis dictum tincidunt. In condimentum lorem ante, at rutrum neque egestas at.
+					#specifications.product-description.tab-pane
+						h3 This is a headline for Specifications
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris arcu, lacinia et dignissim at, mattis porta dolor. Sed eu sagittis nisi. Proin bibendum sapien vitae sem posuere gravida. Phasellus fringilla, ex et ultricies commodo, leo arcu suscipit tortor, hendrerit mollis magna purus id velit. Fusce est dolor, pellentesque et neque vitae, commodo volutpat libero. Sed ut urna non eros posuere tristique. Nam id lacus non risus suscipit tincidunt. Aenean nisl eros, vehicula luctus maximus non, rhoncus et dolor.
+						img(src='http://placehold.it/300x300' class='inline-element')
+						p Varius nulla, id faucibus felis congue sit amet. Nam quis mollis tortor, porta vulputate massa. Cras malesuada lorem mi. Mauris placerat at nibh vel pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras at tristique arcu, id hendrerit massa. Pellentesque et nulla est. Proin dapibus neque odio, a iaculis erat convallis eu. Nullam ultrices rhoncus magna, sed pellentesque velit condimentum in. Pellentesque in quam libero. Nunc vel consequat urna. Etiam pellentesque dui bibendum egestas malesuada. Vestibulum nulla magna, bibendum non massa sit amet, bibendum mattis sem. Fusce pretium et ipsum sit amet ultrices. Cras dictum enim eu vehicula feugiat.
+
+						p Hendrerit egestas tempor. Quisque porttitor porttitor egestas. Quisque faucibus tempus nisl id ultricies. Etiam eget velit bibendum, convallis massa et, mattis odio. Nam sit amet dui mauris. In sed metus ut justo commodo lobortis. Curabitur dictum lorem quis dictum tincidunt. In condimentum lorem ante, at rutrum neque egestas at.
+
+						p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris arcu, lacinia et dignissim at, mattis porta dolor. Sed eu sagittis nisi. Proin bibendum sapien vitae sem posuere gravida. Phasellus fringilla, ex et ultricies commodo, leo arcu suscipit tortor, hendrerit mollis magna purus id velit. Fusce est dolor, pellentesque et neque vitae, commodo volutpat libero. Sed ut urna non eros posuere tristique. Nam id lacus non risus suscipit tincidunt. Aenean nisl eros, vehicula luctus maximus non, rhoncus et dolor.
+
+						img(src='http://placehold.it/300x300' class='inline-element')
+
+						p Varius nulla, id faucibus felis congue sit amet. Nam quis mollis tortor, porta vulputate massa. Cras malesuada lorem mi. Mauris placerat at nibh vel pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras at tristique arcu, id hendrerit massa. Pellentesque et nulla est. Proin dapibus neque odio, a iaculis erat convallis eu. Nullam ultrices rhoncus magna, sed pellentesque velit condimentum in. Pellentesque in quam libero. Nunc vel consequat urna. Etiam pellentesque dui bibendum egestas malesuada. Vestibulum nulla magna, bibendum non massa sit amet, bibendum mattis sem. Fusce pretium et ipsum sit amet ultrices. Cras dictum enim eu vehicula feugiat.
+
+						p Hendrerit egestas tempor. Quisque porttitor porttitor egestas. Quisque faucibus tempus nisl id ultricies. Etiam eget velit bibendum, convallis massa et, mattis odio. Nam sit amet dui mauris. In sed metus ut justo commodo lobortis. Curabitur dictum lorem quis dictum tincidunt. In condimentum lorem ante, at rutrum neque egestas at.					
+			.product-related-list
+				p You may also like:
+				+related()
+			.product-recommended
+				.product-list				
+					+product-list(6)			
+			.product-banners
+				+contentBox("banner","1400x400")			

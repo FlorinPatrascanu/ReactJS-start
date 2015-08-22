@@ -1,0 +1,50 @@
+.header
+	+clearfix
+	margin-bottom: 1em
+	.logo
+		+make-md-column(3)
+		padding-left: 0
+	.upper	
+		font-size: 0.8em
+		margin-bottom: 1em
+		border-bottom: 1px solid $light-gray
+		ul:last-child
+			+h-nav
+			float: right
+			p
+				padding: 0 0.5em
+				margin: 0.5em 0
+			li:last-child
+				p
+					padding-right: 0		
+	.middle
+		+make-md-column(9)
+		font-size: 0.9em
+		padding-right: 0
+	.lower
+		+make-md-column(9)
+		+clearfix
+		font-size: 0.9em
+		padding-right: 0px
+		float: right	
+		.cos
+			float: right
+			margin-left: 1em
+			line-height: 2em
+			span
+				color: $accent
+		.search
+			float: right
+			form 
+				+default-input
+			input
+				+default-input
+				border-top: none
+				border-left: none
+				border-right: none
+			button
+				outline: none
+				background-color: #fff
+				border: none
+				color: $accent
+				font-size: 1.2em

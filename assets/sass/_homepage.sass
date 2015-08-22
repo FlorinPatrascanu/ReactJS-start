@@ -1,0 +1,27 @@
+.home-boxes
+	+make-row()
+	.title
+		font-weight: 300
+		font-size: 1.3em
+		margin-bottom: 0.5em
+	img 
+		margin-bottom: 1em
+	.wide
+		+make-sm-column(4)		
+	.narrow
+		+make-sm-column(2)	
+	.test2
+		+box-img-only()
+	.test3
+		+box-img-only()
+	.test4
+		+box-img-only()
+.featured-list	
+.product-list
+	+clearfix
+	+make-row()
+	.item 		
+		+make-xs-column(6)
+		+make-sm-column(3)
+		+make-md-column(2)
+	

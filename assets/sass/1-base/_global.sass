@@ -1,0 +1,44 @@
+.container
+	+container-fixed
+	@media (min-width: $screen-sm-min)
+		width: $container-sm
+	@media (min-width: $screen-md-min)
+		width: $container-md
+	@media (min-width: $screen-lg-min)
+		width: $container-lg
+.wrapper 
+	// background-color: #fff
+	background-color: rgba(255,255,255,0.95)
+.block-header
+	font-weight: 300
+	font-size: 1.4em
+	border-bottom: 1px solid #eee
+	margin-bottom: 0.5em
+	line-height: 1.6em
+	// text-transform: uppercase
+
+.aside
+	+make-sm-column(4)
+	+make-md-column(2)
+.breadcrumbs
+	padding: 0px $spacing
+	background-color: #000
+	ul
+		+h-nav
+		a
+			color: #fff
+			line-height: 2.2em
+			&:hover
+				color: $blue
+		li 
+			font-size: 0.8em
+			font-weight: 400
+			&:after
+				content: "/"
+				margin-left: 5px
+				margin-right: 5px
+				font-weight: 700
+				color: $blue
+			&:last-child:after
+				// content: ""	
+				color: $red

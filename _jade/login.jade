@@ -1,0 +1,28 @@
+extend jade.resources/layout/master
+block content
+	.container.wrapper
+		.category-page		
+			h1.block-header.category-header.center-header Login	
+			.wrapper-fix
+				.login-content
+					form#ordersubmit1(name='ordersubmit', method='post' class='form-style')
+						.login-block
+							p(class='block-headline') Am deja cont							
+							.form-group
+								label(for='email') Email
+								input(type='text', name='EcomOrderCustomerEmail', data-required='1', ident='billingEmail', copy='1')
+							.form-group
+								label(for='prenume') Parola
+								input(type='text', name='EcomOrderCustomerPassword', data-required='1', ident='billingName', copy='1')
+							a.auth-clients(href='#') Intra in cont
+							a(href='#' class='reset-password') Resetare parola
+						.login-block
+							p(class='block-headline') Conecteaza-te cu alte conturi
+								.login-block-social
+									a(href='#' class='login-facebook') Conecteaza-te ce Facebook
+									br
+									a(href='#' class='login-google-plus') Conecteaza-te ce Google Plus
+						
+
+									
+				

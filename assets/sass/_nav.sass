@@ -1,0 +1,85 @@
+.upper
+	+clearfix
+	color: #aaa	
+	ul
+		+h-nav
+		float: left
+	a
+		padding: 0px 0.5em
+		margin: 0.5em 0
+		color: #aaa
+		&:hover
+			color: $accent
+	li:first-child
+		a
+			padding-left: 0
+.middle
+	+clearfix
+	ul
+		+h-nav
+		float: right
+	a
+		padding: 0 0.5em
+		margin: 0.5em 0
+		color: #000
+		&:hover
+			color: darken(adjust_hue($accent, 136), 11)
+	li:last-child
+		a
+			padding-right: 0
+.main-nav	
+	// border-bottom: 2px solid $blue
+	position: relative
+	z-index: 2
+	background-color: $blue
+	+make-row   //SWITCH
+	ul
+		+h-nav
+		position: relative
+	a
+		+nav-level-1($blue,#fff,$red,#fff)
+		font-weight: 400
+		text-transform: uppercase
+		// &.active 
+		// 	color: #000
+	.dropdown		
+		a:after
+			font-family: "FontAwesome"
+			content: "\f107"
+			font-size: 0.8em
+			margin-left: 0.5em	
+	.dropdown:hover
+		.dropdown-menu
+			display: inline-block		
+	.dropdown-menu
+		display: none
+		+v-nav
+		+clearfix
+		// +background-image(linear-gradient(white, #fafafa))
+		border-bottom: 2px solid $accent
+		min-height: 300px
+		position: absolute
+		top: 28px
+		left: 0
+		.level-2			
+			a
+				+nav-level-2(transparent, $accent, transparent, $accent)
+				text-transform: uppercase
+				font-weight: 700
+				font-size: 0.9em
+				padding-left: 0.8em
+				&:after
+					display: none
+		.level-3
+			a
+				+nav-level-2(transparent, #000, transparent, $accent)
+				font-size: 0.8em
+				text-transform: none
+				font-weight: 400			
+				padding-left: 1em
+		.level-2-container
+			padding: 1em $grid-gutter-width/2
+			float: left		
+	.teaser
+		float: left
+								

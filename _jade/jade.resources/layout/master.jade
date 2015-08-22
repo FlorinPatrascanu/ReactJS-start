@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+		meta(name='viewport' content='width=device-width')
+		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,latin-ext', rel='stylesheet', type='text/css')
+		link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', rel='stylesheet')
+		link(rel='stylesheet', type='text/css', href='assets/css/main.css')		
+		title Eva
+	body
+		include ../partials/variables.jade
+		include ../mixins/mixins.jade
+		include ../partials/header.jade
+		include ../partials/mainNavigation.jade
+		
+		block content
+
+		include ../partials/footer.jade	
