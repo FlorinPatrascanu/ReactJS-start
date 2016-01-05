@@ -1,0 +1,58 @@
+{
+    "mainNav": [  
+        {
+          "name": "Bras",
+          "url": "/category.html"
+        },
+        {
+          "name": "Lingerie",
+          "url": "/category.html"
+        },
+        {
+          "name": "Sleep",
+          "url": "/category.html"
+        },
+        {
+          "name": "Beauty",
+          "url": "/category.html"
+        },
+        {
+          "name": "Swim",
+          "url": "/category.html"
+        },
+        {
+          "name": "Sport",
+          "url": "/category.html"
+        },
+        {
+          "name": "Clothing",
+          "url": "/category.html"
+        },
+        {
+          "name": "Sale",
+          "url": "/category.html"
+        } 
+    ],
+    "headerNav": [
+        {
+            "name": "Help",
+            "url": "#"
+        },
+        {
+            "name": "News",
+            "url": "#"
+        },
+        {
+            "name": "About us",
+            "url": "#"
+        },
+        {
+            "name": "Shops",
+            "url": "#"
+        },
+        {
+            "name": "Contact",
+            "url": "#"
+        }
+    ]
+}
