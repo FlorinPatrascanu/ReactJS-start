@@ -1,4 +1,61 @@
-
+var HeaderReact =  React.createClass({
+	render: function(){
+		return(
+			<div>
+				<header className="header">
+					<div className="header-upper">
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12">
+									<div className="row">
+											<nav className="header-nav col-sm-6">
+												<div id="react-header-navigation"></div>
+											</nav>
+											<div className="header-upper-content col-sm-6">
+												<div className="header-login">
+													<a href="myaccount.html"><i className="ion-person"></i> Daniel`s Account </a>
+												</div>
+												<form method="GET" action="/search.html" className="header-search" autocomplete="off" spellcheck="false">
+													<input type="search" name="eComQuery" id="q" placeholder="Search" />
+													<button type="submit">
+														<i className="ion-ios-search"></i>
+													</button>
+												</form>
+											 	<div className="header-mail">
+											 		<button type="button"><i className="ion-ios-email"></i></button>
+											 	</div>
+											 	<div className="header-phone">
+											 		<button type="button"><i className="ion-android-call"></i></button>
+											 	</div>	
+											</div>
+									</div>
+								</div>		
+							</div>
+						</div>
+					</div>
+					<div className="header-middle">
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12">				
+									<div className="logo"><h1><a href="homepage.html">Eva <small>| Doar pentru tine.</small></a></h1></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+				<nav className="nav-main" role="navigation">
+					<div className="container">
+						<div className="row">
+							<div className="col-xs-12">
+								<div id="react-main-navigation"></div> 				
+							</div>			
+						</div>
+					</div>
+				</nav>
+			</div>
+		);
+	}
+});
 var Navigation = React.createClass({
 	getInitialState: function(){
 		return {
@@ -285,11 +342,19 @@ var Banners = React.createClass({
 	    }
   }
 });
-ReactDOM.render(<Navigation source="http://localhost:3000/resources/navigation.json" target="mainNav" active="2" />, 
-    document.getElementById('react-main-navigation'));
-ReactDOM.render(<Navigation source="http://localhost:3000/resources/navigation.json" target="headerNav" />, 
-    document.getElementById('react-header-navigation'));
-ReactDOM.render(<Banners source="http://localhost:3000/resources/homepage.json" newsletter="true" columns="3" />, 
-    document.getElementById('react-homepage-middle-banners'));
-ReactDOM.render(<Banners source="http://localhost:3000/resources/homepage-lower-banners.json" columns="2" />, 
-    document.getElementById('react-homepage-lower-banners'));
+ReactDOM.render(<HeaderReact />, document.getElementById('react-header'));
+ReactDOM.render(<Navigation source="http://localhost:3000/resources/navigation.json" target="mainNav" active="2" />, document.getElementById('react-main-navigation'));
+ReactDOM.render(<Navigation source="http://localhost:3000/resources/navigation.json" target="headerNav" />, document.getElementById('react-header-navigation'));
+
+if (document.getElementById('react-homepage-middle-banners') !== null ){
+	ReactDOM.render(<Banners source="http://localhost:3000/resources/homepage.json" newsletter="true" columns="3" />, document.getElementById('react-homepage-middle-banners'));
+}
+if (document.getElementById('react-homepage-lower-banners') !== null ){
+	ReactDOM.render(<Banners source="http://localhost:3000/resources/homepage-lower-banners.json" columns="2" />, document.getElementById('react-homepage-lower-banners'));
+}
+if (document.getElementById('react-wishlist') !== null ){
+	ReactDOM.render(<Banners source="http://localhost:3000/resources/wishlist.json" columns="6" />, document.getElementById('react-wishlist'));
+}
+if (document.getElementById('react-special-offers') !== null ){
+	ReactDOM.render(<Banners source="http://localhost:3000/resources/homepage-lower-banners.json" columns="2" />, document.getElementById('react-special-offers'));
+}

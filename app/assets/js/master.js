@@ -1,6 +1,137 @@
+var HeaderReact = React.createClass({
+	displayName: "HeaderReact",
 
+	render: function () {
+		return React.createElement(
+			"div",
+			null,
+			React.createElement(
+				"header",
+				{ className: "header" },
+				React.createElement(
+					"div",
+					{ className: "header-upper" },
+					React.createElement(
+						"div",
+						{ className: "container" },
+						React.createElement(
+							"div",
+							{ className: "row" },
+							React.createElement(
+								"div",
+								{ className: "col-xs-12" },
+								React.createElement(
+									"div",
+									{ className: "row" },
+									React.createElement(
+										"nav",
+										{ className: "header-nav col-sm-6" },
+										React.createElement("div", { id: "react-header-navigation" })
+									),
+									React.createElement(
+										"div",
+										{ className: "header-upper-content col-sm-6" },
+										React.createElement(
+											"div",
+											{ className: "header-login" },
+											React.createElement(
+												"a",
+												{ href: "myaccount.html" },
+												React.createElement("i", { className: "ion-person" }),
+												" Daniel`s Account "
+											)
+										),
+										React.createElement(
+											"form",
+											{ method: "GET", action: "/search.html", className: "header-search", autocomplete: "off", spellcheck: "false" },
+											React.createElement("input", { type: "search", name: "eComQuery", id: "q", placeholder: "Search" }),
+											React.createElement(
+												"button",
+												{ type: "submit" },
+												React.createElement("i", { className: "ion-ios-search" })
+											)
+										),
+										React.createElement(
+											"div",
+											{ className: "header-mail" },
+											React.createElement(
+												"button",
+												{ type: "button" },
+												React.createElement("i", { className: "ion-ios-email" })
+											)
+										),
+										React.createElement(
+											"div",
+											{ className: "header-phone" },
+											React.createElement(
+												"button",
+												{ type: "button" },
+												React.createElement("i", { className: "ion-android-call" })
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "header-middle" },
+					React.createElement(
+						"div",
+						{ className: "container" },
+						React.createElement(
+							"div",
+							{ className: "row" },
+							React.createElement(
+								"div",
+								{ className: "col-xs-12" },
+								React.createElement(
+									"div",
+									{ className: "logo" },
+									React.createElement(
+										"h1",
+										null,
+										React.createElement(
+											"a",
+											{ href: "homepage.html" },
+											"Eva ",
+											React.createElement(
+												"small",
+												null,
+												"| Doar pentru tine."
+											)
+										)
+									)
+								)
+							)
+						)
+					)
+				)
+			),
+			React.createElement(
+				"nav",
+				{ className: "nav-main", role: "navigation" },
+				React.createElement(
+					"div",
+					{ className: "container" },
+					React.createElement(
+						"div",
+						{ className: "row" },
+						React.createElement(
+							"div",
+							{ className: "col-xs-12" },
+							React.createElement("div", { id: "react-main-navigation" })
+						)
+					)
+				)
+			)
+		);
+	}
+});
 var Navigation = React.createClass({
-	displayName: 'Navigation',
+	displayName: "Navigation",
 
 	getInitialState: function () {
 		return {
@@ -18,13 +149,13 @@ var Navigation = React.createClass({
 	},
 	eachItem: function (item, i) {
 		return React.createElement(
-			'li',
+			"li",
 			{ key: i,
 				index: i,
 				className: i === this.props.active - 1 ? 'dropdown active' : 'dropdown'
 			},
 			React.createElement(
-				'a',
+				"a",
 				{ href: item.url },
 				item.name
 			)
@@ -32,35 +163,35 @@ var Navigation = React.createClass({
 	},
 	render: function () {
 		return React.createElement(
-			'ul',
+			"ul",
 			null,
 			this.state.data.map(this.eachItem)
 		);
 	}
 });
 var NewsletterBlock = React.createClass({
-	displayName: 'NewsletterBlock',
+	displayName: "NewsletterBlock",
 
 	render: function () {
 		return React.createElement(
-			'div',
+			"div",
 			{ className: this.props.className },
 			React.createElement(
-				'div',
-				{ className: 'item-newsletter' },
+				"div",
+				{ className: "item-newsletter" },
 				React.createElement(
-					'div',
-					{ className: 'newsletter' },
+					"div",
+					{ className: "newsletter" },
 					React.createElement(
-						'p',
+						"p",
 						null,
-						'Stay in touch with our newest collections'
+						"Stay in touch with our newest collections"
 					),
-					React.createElement('input', { type: 'email', placeholder: 'Enter your email address.' }),
+					React.createElement("input", { type: "email", placeholder: "Enter your email address." }),
 					React.createElement(
-						'button',
-						{ type: 'button' },
-						'Subscribe to Newsletter'
+						"button",
+						{ type: "button" },
+						"Subscribe to Newsletter"
 					)
 				)
 			)
@@ -69,7 +200,7 @@ var NewsletterBlock = React.createClass({
 });
 
 var Banner = React.createClass({
-	displayName: 'Banner',
+	displayName: "Banner",
 
 	getInitialState: function () {
 		return {
@@ -93,47 +224,47 @@ var Banner = React.createClass({
 	},
 	eachItem: function (item, i) {
 		return React.createElement(
-			'button',
-			{ key: i, className: 'col-xs-2' },
-			React.createElement('img', { index: i, src: item.src, title: item.title })
+			"button",
+			{ key: i, className: "col-xs-2" },
+			React.createElement("img", { index: i, src: item.src, title: item.title })
 		);
 	},
 	renderDisplay: function () {
 		return React.createElement(
-			'a',
+			"a",
 			{ href: this.props.url },
-			React.createElement('img', { src: this.props.imageSrc, title: this.props.title })
+			React.createElement("img", { src: this.props.imageSrc, title: this.props.title })
 		);
 	},
 	renderConfig: function () {
 		return React.createElement(
-			'div',
-			{ className: 'editing-banner' },
+			"div",
+			{ className: "editing-banner" },
 			React.createElement(
-				'a',
+				"a",
 				{ href: this.props.url },
-				React.createElement('img', { src: this.props.imageSrc, title: this.props.title })
+				React.createElement("img", { src: this.props.imageSrc, title: this.props.title })
 			),
 			React.createElement(
-				'button',
-				{ type: 'button', className: 'delete-banner', onClick: this.remove },
-				React.createElement('i', { className: 'fa fa-trash-o' })
+				"button",
+				{ type: "button", className: "delete-banner", onClick: this.remove },
+				React.createElement("i", { className: "fa fa-trash-o" })
 			)
 		);
 	},
 	renderNewItem: function () {
 		return React.createElement(
-			'div',
-			{ className: 'editing-banner' },
+			"div",
+			{ className: "editing-banner" },
 			React.createElement(
-				'a',
+				"a",
 				{ href: this.props.url },
-				React.createElement('img', { src: this.props.imageSrc, title: this.props.title })
+				React.createElement("img", { src: this.props.imageSrc, title: this.props.title })
 			),
 			React.createElement(
-				'button',
-				{ type: 'button', className: 'delete-banner', onClick: this.remove },
-				React.createElement('i', { className: 'fa fa-trash-o' })
+				"button",
+				{ type: "button", className: "delete-banner", onClick: this.remove },
+				React.createElement("i", { className: "fa fa-trash-o" })
 			),
 			this.state.data.map(this.eachItem)
 		);
@@ -150,7 +281,7 @@ var Banner = React.createClass({
 	}
 });
 var GenerateRow = React.createClass({
-	displayName: 'GenerateRow',
+	displayName: "GenerateRow",
 
 	getInitialState: function () {
 		return {
@@ -201,30 +332,30 @@ var GenerateRow = React.createClass({
 	},
 	eachItem: function (item, i) {
 		return React.createElement(
-			'div',
+			"div",
 			{ key: i, className: this.dynamicClass() },
 			React.createElement(Banner, { index: i, url: item.url, imageSrc: item.src, title: item.title, editing: this.state.editing, onRemove: this.remove })
 		);
 	},
 	renderDisplay: function () {
 		return React.createElement(
-			'div',
-			{ className: 'row-wrap' },
+			"div",
+			{ className: "row-wrap" },
 			React.createElement(
-				'div',
+				"div",
 				{ className: this.containerClass() },
 				React.createElement(
-					'div',
-					{ className: 'configuration' },
+					"div",
+					{ className: "configuration" },
 					React.createElement(
-						'button',
-						{ type: 'button', className: 'edit-trigger', onClick: this.edit, 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Row Configuration' },
-						React.createElement('i', { className: 'fa fa-cog' })
+						"button",
+						{ type: "button", className: "edit-trigger", onClick: this.edit, "data-toggle": "tooltip", "data-placement": "top", title: "Row Configuration" },
+						React.createElement("i", { className: "fa fa-cog" })
 					)
 				),
 				React.createElement(
-					'div',
-					{ className: 'row' },
+					"div",
+					{ className: "row" },
 					this.state.data.map(this.eachItem)
 				)
 			)
@@ -232,80 +363,80 @@ var GenerateRow = React.createClass({
 	},
 	renderConfig: function () {
 		return React.createElement(
-			'div',
-			{ className: 'row-wrap edit' },
+			"div",
+			{ className: "row-wrap edit" },
 			React.createElement(
-				'div',
+				"div",
 				{ className: this.containerClass() },
 				React.createElement(
-					'div',
-					{ className: 'configuration' },
+					"div",
+					{ className: "configuration" },
 					React.createElement(
-						'button',
-						{ type: 'button', className: 'edit-trigger', onClick: this.edit, 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Row Configuration' },
-						React.createElement('i', { className: 'fa fa-cog' })
+						"button",
+						{ type: "button", className: "edit-trigger", onClick: this.edit, "data-toggle": "tooltip", "data-placement": "top", title: "Row Configuration" },
+						React.createElement("i", { className: "fa fa-cog" })
 					),
 					React.createElement(
-						'div',
-						{ className: 'content' },
+						"div",
+						{ className: "content" },
 						React.createElement(
-							'p',
+							"p",
 							null,
-							'Columns: ',
+							"Columns: ",
 							React.createElement(
-								'span',
-								{ className: 'modifier' },
+								"span",
+								{ className: "modifier" },
 								this.state.columnNumber
 							)
 						),
-						React.createElement('input', { onChange: this.handleColumnNumber, type: 'range', name: 'columnNumbers', min: '1', max: '12', list: 'numbers', defaultValue: this.state.columnNumber }),
+						React.createElement("input", { onChange: this.handleColumnNumber, type: "range", name: "columnNumbers", min: "1", max: "12", list: "numbers", defaultValue: this.state.columnNumber }),
 						React.createElement(
-							'datalist',
-							{ id: 'numbers' },
+							"datalist",
+							{ id: "numbers" },
 							React.createElement(
-								'option',
+								"option",
 								null,
-								'1'
+								"1"
 							),
 							React.createElement(
-								'option',
+								"option",
 								null,
-								'2'
+								"2"
 							),
 							React.createElement(
-								'option',
+								"option",
 								null,
-								'3'
+								"3"
 							),
 							React.createElement(
-								'option',
+								"option",
 								null,
-								'4'
+								"4"
 							),
 							React.createElement(
-								'option',
+								"option",
 								null,
-								'6'
+								"6"
 							),
 							React.createElement(
-								'option',
+								"option",
 								null,
-								'12'
+								"12"
 							)
 						)
 					)
 				),
 				React.createElement(
-					'div',
-					{ className: 'row' },
+					"div",
+					{ className: "row" },
 					this.state.data.map(this.eachItem),
 					React.createElement(
-						'div',
-						{ className: 'col-xs-12' },
+						"div",
+						{ className: "col-xs-12" },
 						React.createElement(
-							'button',
-							{ type: 'button', className: 'add-banner', onClick: this.add },
-							'Add new banner'
+							"button",
+							{ type: "button", className: "add-banner", onClick: this.add },
+							"Add new banner"
 						)
 					)
 				)
@@ -321,7 +452,7 @@ var GenerateRow = React.createClass({
 	}
 });
 var Banners = React.createClass({
-	displayName: 'Banners',
+	displayName: "Banners",
 
 	getInitialState: function () {
 		return {
@@ -354,19 +485,19 @@ var Banners = React.createClass({
 		}
 	},
 	eachItem: function (item, i) {
-		return React.createElement(GenerateRow, { key: i, editing: this.state.editing, source: this.state.data[i], columns: this.props.columns, newsletter: 'true' });
+		return React.createElement(GenerateRow, { key: i, editing: this.state.editing, source: this.state.data[i], columns: this.props.columns, newsletter: "true" });
 	},
 	renderDisplay: function () {
 		return React.createElement(
-			'div',
-			{ className: 'banner-zone' },
+			"div",
+			{ className: "banner-zone" },
 			this.state.data.map(this.eachItem)
 		);
 	},
 	renderConfig: function () {
 		return React.createElement(
-			'div',
-			{ className: 'banner-zone edit' },
+			"div",
+			{ className: "banner-zone edit" },
 			this.state.data.map(this.eachItem)
 		);
 	},
@@ -378,7 +509,19 @@ var Banners = React.createClass({
 		}
 	}
 });
-ReactDOM.render(React.createElement(Navigation, { source: 'http://localhost:3000/resources/navigation.json', target: 'mainNav', active: '2' }), document.getElementById('react-main-navigation'));
-ReactDOM.render(React.createElement(Navigation, { source: 'http://localhost:3000/resources/navigation.json', target: 'headerNav' }), document.getElementById('react-header-navigation'));
-ReactDOM.render(React.createElement(Banners, { source: 'http://localhost:3000/resources/homepage.json', newsletter: 'true', columns: '3' }), document.getElementById('react-homepage-middle-banners'));
-ReactDOM.render(React.createElement(Banners, { source: 'http://localhost:3000/resources/homepage-lower-banners.json', columns: '2' }), document.getElementById('react-homepage-lower-banners'));
+ReactDOM.render(React.createElement(HeaderReact, null), document.getElementById('react-header'));
+ReactDOM.render(React.createElement(Navigation, { source: "http://localhost:3000/resources/navigation.json", target: "mainNav", active: "2" }), document.getElementById('react-main-navigation'));
+ReactDOM.render(React.createElement(Navigation, { source: "http://localhost:3000/resources/navigation.json", target: "headerNav" }), document.getElementById('react-header-navigation'));
+
+if (document.getElementById('react-homepage-middle-banners') !== null) {
+	ReactDOM.render(React.createElement(Banners, { source: "http://localhost:3000/resources/homepage.json", newsletter: "true", columns: "3" }), document.getElementById('react-homepage-middle-banners'));
+}
+if (document.getElementById('react-homepage-lower-banners') !== null) {
+	ReactDOM.render(React.createElement(Banners, { source: "http://localhost:3000/resources/homepage-lower-banners.json", columns: "2" }), document.getElementById('react-homepage-lower-banners'));
+}
+if (document.getElementById('react-wishlist') !== null) {
+	ReactDOM.render(React.createElement(Banners, { source: "http://localhost:3000/resources/wishlist.json", columns: "6" }), document.getElementById('react-wishlist'));
+}
+if (document.getElementById('react-special-offers') !== null) {
+	ReactDOM.render(React.createElement(Banners, { source: "http://localhost:3000/resources/homepage-lower-banners.json", columns: "2" }), document.getElementById('react-special-offers'));
+}

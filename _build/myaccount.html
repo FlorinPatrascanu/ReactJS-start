@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eva</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
+	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900italic,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<!--[if lt IE 9]><!-->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="react-header"></div>
+<div id="react-navigation"></div>
+<main>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="heading--account modifier">Daniel's account</h1>
+			</div>				
+			<div class="col-xs-12">
+				<div class="account-header">
+					<div class="row">
+						<div class="personal-details col-sm-3">
+							<h2>Account Information</h2>
+							<p>daniel@test.com</p>
+							<p>Daniel McOwl</p>
+							<p>Phone: 072XXXXXXX</p>
+							<div class="actions">
+								<a href="myaccount-personaldetails.html" class="button-link">Edit</a>
+								<a href="myaccount-resetpassword.html" class="button-link">Change password</a>
+							</div>							
+						</div>
+						<div class="billing-address-list col-sm-3">
+							<h2>Billing Information</h2>	
+							<div class="item"> 
+								<p><em>Address 1</em> - Str. Ion Luca Caragiale Nr.22 Ap.31</p>								
+								<button type="button" class="button-link">edit</button>
+								<button tupe="button" class="delete"><i class="ion-ios-close"></i></button>
+							</div>
+							<div class="item">
+								<p><em>Address 2</em> - Str. Paduraru Nica Nr.12 Ap.22</p>								
+								<button type="button" class="button-link">edit</button>
+								<button tupe="button" class="delete"><i class="ion-ios-close"></i></button>
+							</div>
+							<div class="actions">
+								<a href="myaccount-billing.html" class="button-link">View all(2)</a>
+							</div>	
+						</div>
+						<div class="shipping-address-list col-sm-3">
+							<h2>Shipping Information</h2>	
+							<div class="item"> 
+								<p><em>Address 1</em> - Str. Ion Luca Caragiale Nr.22 Ap.31</p>								
+								<button type="button" class="button-link">edit</button>
+								<button tupe="button" class="delete"><i class="ion-ios-close"></i></button>
+							</div>
+							<div class="item">
+								<p><em>Address 2</em> - Str. Paduraru Nica Nr.12 Ap.22</p>								
+								<button type="button" class="button-link">edit</button>
+								<button tupe="button" class="delete"><i class="ion-ios-close"></i></button>								
+							</div>
+							<div class="item">
+								<p><em>Address 3</em> - Str. Ion Coanda Nr.32 Ap.12</p>								
+								<button type="button" class="button-link">edit</button>
+								<button tupe="button" class="delete"><i class="ion-ios-close"></i></button>								
+							</div>
+							<div class="actions">
+								<a href="myaccount-shipping.html" class="button-link">View all(3)</a>
+							</div>	
+						</div>
+						<div class="shipping-address-list col-sm-3">
+							<h2>Your Orders</h2>
+							<a href="#" class="button-link">See your latest orders</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<h3 class="heading--account modifier">Your Wishlist</h3>
+				<div class="row">
+					<div id="react-wishlist"></div>
+				</div>				
+			</div>	
+		
+			<div class="col-xs-12">
+				<h3 class="heading--account">Subscriptions</h3>
+				<div class="subscription-actions">
+					<a href="#" class="button-link">Sign up for Email</a>
+					<a href="#" class="button-link">Newsletter Unsubscribe</a>
+					<a href="#" class="button-link">Catalogue Request</a>
+				</div>
+			</div>
+			
+			<div class="col-xs-12">
+				<h3 class="heading--account">Current Offers</h3>
+				<div class="row">
+					<div id="react-special-offers"></div>
+				</div>
+			</div>
+			<!-- <div class="col-xs-12">
+				<h3 class="heading--account">Delivery Information</h3>
+				<p>Etiam feugiat convallis massa id cursus. Phasellus non magna ut tortor ullamcorper posuere. Suspendisse eu neque risus. Curabitur sodales a erat nec rhoncus. Morbi ut varius diam, ut feugiat nulla. Donec viverra quam ut elit dictum viverra. Fusce placerat euismod augue, at dapibus justo ultrices ac. Quisque mollis blandit velit, ut ultrices urna facilisis ac. Ut lorem diam, faucibus vitae lectus in, imperdiet rutrum nisl.</p>
+				<p>Etiam feugiat convallis massa id cursus. Phasellus non magna ut tortor ullamcorper posuere. Suspendisse eu neque risus. Curabitur sodales a erat nec rhoncus. Morbi ut varius diam, ut feugiat nulla. Donec viverra quam ut elit dictum viverra. Fusce placerat euismod augue, at dapibus justo ultrices ac. Quisque mollis blandit velit, ut ultrices urna facilisis ac. Ut lorem diam, faucibus vitae lectus in, imperdiet rutrum nisl.</p>
+			</div> -->
+				
+		
+		</div>
+	</div>
+	
+</main>
+<!-- Scripts -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="assets/js/main.min.js"></script>
+</body>
+</html>
