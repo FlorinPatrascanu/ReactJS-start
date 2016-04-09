@@ -59,14 +59,18 @@
     border: none  
   .col-xs-12:first-child &
     border: none
-#react-wishlist a:after 
-  font-family: "FontAwesome"
-  content: "\f004"
-  position: absolute
-  right: 1.5em
-  top: 0.5em
-  color: #F15B8A
-  font-size: 1.5em
+#react-wishlist 
+  a
+    display: block 
+    position: relative
+    &:after 
+      font-family: "FontAwesome"
+      content: "\f004"
+      position: absolute
+      right: 0.5em
+      top: 0.5em
+      color: #F15B8A
+      font-size: 1.5em
 .subscription-actions
   a 
     display: block

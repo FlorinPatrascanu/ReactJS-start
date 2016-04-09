@@ -1,0 +1,124 @@
+	
+	{
+		"tall" :[
+			{
+				"title": "Tall Banner",
+				"src": "assets/img/banners/tall/spring.jpg",
+				"url": "#"
+			},		
+			{
+				"title": "Tall Banner",
+				"src": "assets/img/banners/tall/sport-bra.jpg",
+				"url": "#"
+			},
+			
+			{
+				"title": "Tall Banner",
+				"src": "assets/img/banners/tall/hot-sun.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Tall Banner",
+				"src": "assets/img/banners/tall/fun-june.jpg",
+				"url": "#"
+			},		
+			{
+				"title": "Tall Banner",
+				"src": "assets/img/banners/tall/the-beach.jpg",
+				"url": "#"
+			},
+			
+			{
+				"title": "Tall Banner",
+				"src": "assets/img/banners/tall/summer-ready.jpg",
+				"url": "#"
+			}
+		],	
+		"wide" : [
+			{
+				"title": "Half",
+				"src": "assets/img/eva-banner-wide-2.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Half",
+				"src": "assets/img/eva-banner-wide-3.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Half",
+				"src": "assets/img/eva-banner-wide-4.jpg",
+				"url": "#"
+			}		
+		],
+		"products": [
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-1.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-2.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-3.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-4.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-5.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-6.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-7.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-8.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-9.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-10.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-11.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-12.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Product",
+				"src": "assets/img/products/product-13.jpg",
+				"url": "#"
+			}
+
+
+		]
+}	
+	

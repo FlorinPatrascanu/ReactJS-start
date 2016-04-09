@@ -1,6 +1,8 @@
 bower_components
 node_modules
 _site
+_temp
+_build
 assets/css
 .sass-cache
 prepros.cfg

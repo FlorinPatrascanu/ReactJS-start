@@ -7,16 +7,25 @@
 @import 1-base/_global
 @import 1-base/_reset
 
+
+// @import 2-modules/_product-box
+@import 2-modules/_nav
+@import 2-modules/_sliders
+@import 2-modules/_React-Banners
+
 @import 3-layout/_forms
-@import 3-layout/_category
+// @import 3-layout/_category
 @import 3-layout/_account
+@import 3-layout/_header
+@import 3-layout/_homepage
+// @import 3-layout/_blog
+// @import 3-layout/_product-page
+.example-appear 
+  opacity: 0.01
 
-@import _header
-@import _product-box
-@import _nav
-@import _sliders
-@import _homepage
-@import _blog
-@import _product-page
 
-@import _React-Banners
+.example-appear.example-appear-active
+  opacity: 1
+  transition: opacity .5s ease-in
+
+

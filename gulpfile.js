@@ -7,23 +7,36 @@ var prefix      = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
+var jsonServer = require('gulp-json-srv');
+
+gulp.task('json-server', function () {
+  jsonServer.start({
+    data: 'app/resources/db.json',
+    port: 25000
+  });
+});
 gulp.task('babel', function(){
-  return gulp.src(['app/assets/js/*.jsx'])
+  return gulp.src(['app/assets/jsx/*.jsx', 'app/assets/jsx/*.js'])
     .pipe(babel({
       presets: ['react']
     }))
-    .pipe(gulp.dest('app/assets/js'));
+    .pipe(sourcemaps.init())   
+    .pipe(concat('main.js'))
+    .pipe(sourcemaps.write('/'))
+    .pipe(gulp.dest('_build/assets/js'));
   });
-gulp.task('scripts', function() {
-  return gulp.src(['app/assets/**/*.js'])
-  	.pipe(sourcemaps.init())    
-    .pipe(concat('main.min.js'))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('_build/assets/js/'));
-});
+
+//gulp.task('scripts', function() {
+//  return gulp.src(['app/assets/**/*.js'])
+//  	.pipe(sourcemaps.init())    
+//    .pipe(concat('main.js'))
+//    .pipe(sourcemaps.write('.'))
+//    .pipe(uglify('main.js'))
+//    .pipe(gulp.dest('app/assets/js/'));
+//});
 
 gulp.task('compress', function() {
-  return gulp.src('_build/assets/js/*.js')
+  return gulp.src('app/assets/js/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('.'));
 });
@@ -43,10 +56,14 @@ gulp.task('browser-sync', ['sass'], function() {
 gulp.task('copy', function(){
   return gulp.src('app/*.html')
   .pipe(gulp.dest('_build'));
-})
+});
 gulp.task('copyResources', function(){
-  return gulp.src('app/resources/*.json')
+  return gulp.src('app/resources/**.*')
   .pipe(gulp.dest('_build/resources'));
+});
+gulp.task('copyImages', function(){
+  return gulp.src(['app/assets/img/**/*'],{ base: 'src'})
+  .pipe(gulp.dest('_build/assets/img'));
 })
 
 gulp.task('sass', function () {
@@ -63,17 +80,17 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.write('/')) 
     .pipe(gulp.dest('_build/assets/css'))
     .pipe(browserSync.reload({stream:true}))
-    .pipe(gulp.dest('app/assets/css'))
 });
 
 gulp.task('watch', function() {
   gulp.watch(['app/assets/sass/*.sass','app/assets/sass/**/*.sass'], ['sass']);
-  gulp.watch(['app/resources/*.json'], ['copyResources']);
-  gulp.watch(['app/assets/js/*.jsx'], ['babel']);
-  gulp.watch(['app/assets/js/*.js'], ['scripts','compress']);
+  gulp.watch(['app/resources/*.**'], ['copyResources']);
+  gulp.watch(['app/assets/img/*.**'], ['copyImages']);
+  gulp.watch(['app/assets/jsx/*.jsx','app/assets/js/*.js'], ['babel']);
+ // gulp.watch(['app/assets/js/*.js'], ['compress']);
   gulp.watch(['app/*.html'], ['copy']);
 //  gulp.watch(['_jade/*.jade', '_jade/**/**/*.jade'], ['jade']);
   gulp.watch(['_build/*.html'], ['rebuild']);
 });
 
-gulp.task('default', ['copy','copyResources', 'scripts', 'watch', 'browser-sync' ]);  
+gulp.task('default', ['copyImages','copyResources', 'copy', 'sass', 'babel', 'json-server', 'watch', 'browser-sync' ]);  

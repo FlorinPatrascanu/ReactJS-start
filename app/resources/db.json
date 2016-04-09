@@ -1,0 +1,46 @@
+{
+  "people": [
+    {
+      "id": 0,
+      "name": "Daniel",
+      "eyes": "Brown",
+      "superhero": true
+    },
+    {
+      "id": 1,
+      "name": "Andreea",
+      "eyes": "Blue",
+      "superhero": true
+    },
+    {
+      "name": "Andreea",
+      "eyes": "Blue",
+      "superhero": true,
+      "id": 2
+    },
+    {
+      "name": "Andreea",
+      "eyes": "Blue",
+      "superhero": true,
+      "id": 3
+    },
+    {
+      "name": "Andreea",
+      "eyes": "Blue",
+      "superhero": true,
+      "id": 4
+    },
+    {
+      "name": "Alexandra",
+      "eyes": "Green",
+      "superhero": false,
+      "id": 5
+    },
+    {
+      "name": "Anda",
+      "eyes": "Brown",
+      "superhero": true,
+      "id": 6
+    }
+  ]
+}
