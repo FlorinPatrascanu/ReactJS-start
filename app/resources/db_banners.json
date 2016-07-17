@@ -51,6 +51,18 @@
 				"url": "#"
 			}		
 		],
+		"full" : [
+			{
+				"title": "Full",
+				"src": "assets/img/banners/full/category.jpg",
+				"url": "#"
+			},
+			{
+				"title": "Full",
+				"src": "assets/img/banners/full/category-2.jpg",
+				"url": "#"
+			}		
+		],
 		"products": [
 			{
 				"title": "Product",

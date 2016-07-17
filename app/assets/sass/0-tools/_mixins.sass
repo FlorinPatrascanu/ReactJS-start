@@ -3,7 +3,7 @@
 	list-style-type: none
 	padding-left: 0px
 	li 
-		float: left
+		float: left		
 =v-nav	
 	list-style-type: none
 	li
@@ -13,7 +13,6 @@
 		list-style-type: none
 	li
 		display: table-cell
-
 =placeholder
   &::-webkit-input-placeholder 
   	@content
@@ -23,8 +22,27 @@
   	@content
   &:-ms-input-placeholder        
   	@content
-
 =text-overflow
   overflow: hidden
   text-overflow: ellipsis
   white-space: nowrap
+
+
+=e($elements...)
+  $selector: ()
+  @each $element in $elements
+    $selector: append($selector, unquote("&__" + $element), comma)
+  #{$selector}
+    @content
+=m($modifiers...)
+  $selector: ()
+  @each $modifier in $modifiers
+    $selector: append($selector, unquote("&--" + $modifier), comma)
+  #{$selector}
+    @content
+
+// .block
+//   +e(child)
+//     background: teal
+//     +m(featured, important)
+//       background: crimson    

@@ -2,8 +2,8 @@ var h =  {
   rando : function(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   },
-  loadSlickSlider: function() {
-   		$('.slick-slider').slick({
+  loadSlickSlider: function(arg) {  	
+   		$(arg).slick({
    			infinite: true,
    			dots: true,
    			arrows: false,
@@ -39,7 +39,7 @@ var HeaderReact =  React.createClass({
 											</nav>
 											<div className="header-upper-content col-sm-6">
 												<div className="header-login">
-													<Link to="/my-account"><i className="ion-person"></i> Daniel`s Account </Link>
+													<a href="/myaccount.html"><i className="ion-person"></i> Daniel`s Account </a>
 												</div>
 												<form method="GET" action="/search.html" className="header-search" autocomplete="off" spellcheck="false">
 													<input type="search" name="eComQuery" id="q" placeholder="Search" />
@@ -63,7 +63,7 @@ var HeaderReact =  React.createClass({
 						<div className="container">
 							<div className="row">
 								<div className="col-xs-12">				
-									<div className="logo"><h1><Link to="/">Eva <small>| Only for you.</small></Link></h1></div>
+									<div className="logo"><h1><a href="/">Eva <small>| Only for you.</small></a></h1></div>
 								</div>
 							</div>
 						</div>
@@ -89,12 +89,10 @@ var Navigation = React.createClass({
 		};
 	},
 	componentWillMount: function() {
-    $.getJSON(this.props.source, function(result) {     	
-	      // if (this.isMounted()) {
+    $.getJSON(this.props.source, function(result) {
 	        this.setState({
 	          data: result[this.props.target]
-	        });	        
-	      // }
+	        });	
 	  }.bind(this));
   },  
  eachItem: function(item, i) { 	
@@ -102,7 +100,7 @@ var Navigation = React.createClass({
               <li key={i}
                   index={i}
                   className={(i === this.props.active - 1) ? 'dropdown active' : 'dropdown'}
-              ><Link to={item.url}>{item.name}</Link></li>
+              ><a href={item.url}>{item.name}</a></li>
           );
   },
   render: function() {
@@ -171,9 +169,10 @@ var GenerateRow = React.createClass({
 			db_resource: []
 		};
 	},
-	componentWillMount: function() {		
+	componentWillMount: function() {	
 		this.setState({columnNumber: this.props.columns === "" ? this.state.columnNumber : this.props.columns});
 		this.setState({data: this.props.source.items});
+		this.setState({fluid: this.props.fluid === undefined ? this.state.fluid : true});
 		// this.setState({db_resource: this.props.source.db_load});
 		var db_type = this.props.source.db_load; 
 		$.getJSON("/resources/db_banners.json", function(result) { 
@@ -186,6 +185,15 @@ var GenerateRow = React.createClass({
   // componentDidMount: function() {
   // 	console.dir(this.state.db_resource);
   // },
+  componentDidMount: function() {
+  	// var _this = this;
+  	// var fluidProp = _this.props.fluid === undefined ? _this.state.fluid : true;
+  	// setTimeout(function(){
+  	// 	_this.setState({fluid: fluidProp});  	
+  	// 	console.log(_this.containerClass());
+  	// },500);
+  	
+  },
 	containerClass: function(){
 		if(this.state.fluid === true) {
 			return "container-fluid";
@@ -223,13 +231,6 @@ var GenerateRow = React.createClass({
     arr.splice(i, 1);
     this.setState({data: arr});
   },
-  // addNewsletter: function(){
-  // 	if (this.props.newsletter) {
-  // 		return (
-  // 			<NewsletterBlock className={this.dynamicClass()} />
-  // 		);				
-		// } 
-  // },
 	eachItem: function(item, i) {		
       return (      		
 			  <div key={i} className={this.dynamicClass()}>
@@ -237,7 +238,9 @@ var GenerateRow = React.createClass({
         </div>      	
       );
   } , 
-	renderDisplay: function(){
+	renderDisplay: function(){	
+		// console.log(this.state.fluid);	
+		// console.log(this.containerClass());
 		return (		
 			<div className="row-wrap">	 
 				<div className={this.containerClass()}>	
@@ -294,19 +297,16 @@ var GenerateBanners = React.createClass({
 		};
 	},
 	componentWillMount: function() {
-		this.setState({columnNumber: this.props.columns});
+		this.setState({columnNumber: this.props.columns});		
     $.getJSON(this.props.source, function(result) {	      
         this.setState({
           data: result
         });	
 	  }.bind(this));
   },
-  // componentDidMount: function(){
-  // 	console.dir(this.state.data);
-  // },
  	eachItem: function(item, i) {
     return (
-    	<GenerateRow key={i} source={this.state.data[i]} columns={this.props.columns} />
+    	<GenerateRow key={i} source={this.state.data[i]} columns={this.props.columns} fluid={this.props.fluid} />
     );
   },  
   renderDisplay: function(){
@@ -329,114 +329,7 @@ var GenerateBanners = React.createClass({
 // });
 
 
-var GenerateSlider = React.createClass({
-	getInitialState: function(){
-		return {
-			data: [],
-			id: 0,
-			type: "",
-			slides: 0,
-			editing: false,
-			fluid: true,
-		};
-	},
-	componentWillMount: function(){
-		var index = this.props.id;
-		$.getJSON(this.props.source, function(result) {								
-        this.setState({
-          data: result[index].items,
-        });	
-        this.setState({id: this.props.id});
-        this.setState({type: this.props.type});
-        this.setState({slides: this.props.slides});
-	  }.bind(this));	
-	},
-	componentDidMount: function(){
-		setTimeout(function(){
-			h.loadSlickSlider();
-		}, 0);
-	},
-	componentDidUpdate: function(){	
-			console.log("updated");			
-	},
-	edit: function(){
-		var value= !this.state.editing;
-		this.setState({editing: value});
-	},
-	containerClass: function(){
-		if(this.state.fluid === true) {
-			return "container-fluid";
-		} else {
-			return "container";
-		}
-	},
-	columnClass: function(){
-		if(this.state.fluid === true) {
-			return "clearfix";
-		} else {
-			return "col-xs-12";
-		}
-	},		
-  handleFluidWrapper: function(){
-  	var value = !this.state.fluid;
-  	this.setState({fluid: value});  	
-  },	
-	eachItem: function(item, i) {
-    return (
-    	<div key={i}>
-    		<Link to={item.url}><img src={item.src} alt={item.title}/></Link>
-    	</div>
-    );
-  },  
-  renderConfig: function(){
 
-  	return (
-  		<div className="row-wrap edit">
-  			<div className={this.containerClass()}>
-  				<div className="configuration">
-						<button type="button" className="edit-trigger" onClick={this.edit}><i className="fa fa-cog"></i></button>
-						<div className="content">
-							<button type="button" className="conf-switch-width" data-fluid={this.state.fluid} onClick={this.handleFluidWrapper} >Switch width</button>
-						</div>
-					</div>
-					<div className="row">
-						<div className="col-xs-12">
-							<div className="slick-slider">
-								{this.state.data.map(this.eachItem)}
-							</div>
-						</div>
-					</div>
-  			</div>	  		
-			</div>
-  	);
-  },
-	renderDisplay: function(){		
-		return ( 
-			<div className="row-wrap">
-				<div className={this.containerClass()}>
-					<div className="configuration">
-						<button type="button" className="edit-trigger" onClick={this.edit}><i className="fa fa-cog"></i></button>
-					</div>
-					<div className="row">
-						<div className={this.columnClass()}>
-							<div className="slick-slider">
-								{this.state.data.map(this.eachItem)}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	},
-	render: function(){		
-    if (this.state.editing === true) {
-      return this.renderConfig();
-    } else {
-      return this.renderDisplay();
-    }
-	}
-
-});
 
 ReactDOM.render(<HeaderReact />, document.getElementById('react-header'));
 
@@ -451,9 +344,7 @@ ReactDOM.render(<HeaderReact />, document.getElementById('react-header'));
 
 // ReactDOM.render(<Navigation source="/resources/navigation.json" target="mainNav" active="2" />, document.getElementById('react-main-navigation'));
 // ReactDOM.render(<Navigation source="/resources/navigation.json" target="headerNav" />, document.getElementById('react-header-navigation'));
-if (document.getElementById('react-main-slider') !== null ){
-	ReactDOM.render(<GenerateSlider source="/resources/slider.json" id="0" />, document.getElementById('react-main-slider'));
-}
+
 if (document.getElementById('react-homepage-middle-banners') !== null ){
 	ReactDOM.render(<GenerateBanners source="/resources/homepage.json" columns="3" />, document.getElementById('react-homepage-middle-banners'));
 }
@@ -465,4 +356,7 @@ if (document.getElementById('react-wishlist') !== null ){
 }
 if (document.getElementById('react-special-offers') !== null ){
 	ReactDOM.render(<GenerateBanners source="/resources/homepage-lower-banners.json" columns="2" />, document.getElementById('react-special-offers'));
+}
+if (document.getElementById('react-category-head-banner') !== null ){
+	ReactDOM.render(<GenerateBanners source="/resources/category.json" columns="1" fluid="true" />, document.getElementById('react-category-head-banner'));
 }

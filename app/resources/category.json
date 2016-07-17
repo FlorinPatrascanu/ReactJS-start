@@ -1,0 +1,14 @@
+[	
+	{
+		"id": 0,
+		"title": "Full Banner",
+		"db_load": "full",
+		"items" :[
+			{
+				"title": "Full Banner",
+				"src": "assets/img/banners/full/category.jpg",
+				"url": "#"
+			}
+		]
+	}	
+]
