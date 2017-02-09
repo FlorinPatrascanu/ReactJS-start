@@ -32,6 +32,7 @@ gulp.task('rebuild', function () {
 
 gulp.task('browser-sync', ['sass'], function() {
     browserSync({
+        browser: ["chrome"],
         server: {
             baseDir: '_build'
         }
