@@ -1,0 +1,176 @@
+{
+	"type": "controller1",
+	"options": [
+		{
+			"name": "level 1",
+			"value": "id12",
+			"children": [
+				{
+				"name": "level 1",
+				"value": "id12",
+				"children": [],
+				"last": false
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": true
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": true
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": true
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": true
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": true
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": true
+				}
+			],
+			"last": false
+		},
+		{
+			"name": "level 1",
+			"value": "id1",
+			"children": [
+				{
+				"name": "level 2",
+				"value": "id12",
+				"children": [],
+				"last": false
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [
+						{
+							"name": "level 3",
+							"value": "id12",
+							"children": [],
+							"last": true
+						},
+						{
+							"name": "level 3",
+							"value": "id12",
+							"children": [],
+							"last": true
+						},
+						{
+							"name": "level 3",
+							"value": "id12",
+							"children": [],
+							"last": true
+						},
+						{
+							"name": "level 3",
+							"value": "id12",
+							"children": [],
+							"last": true
+						},
+						{
+							"name": "level 3",
+							"value": "id12",
+							"children": [],
+							"last": true
+						},
+						{
+							"name": "level 3",
+							"value": "id12",
+							"children": [],
+							"last": true
+						},
+						{
+							"name": "level 3",
+							"value": "id12",
+							"children": [],
+							"last": true
+						}
+					],
+					"last": false
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": false
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": false
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": false
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": false
+				},
+				{
+					"name": "level 2",
+					"value": "id12",
+					"children": [],
+					"last": false
+				}
+			],
+			"last": false
+		},
+		{
+			"name": "level 1",
+			"value": "id1",
+			"children": [],
+			"last": false
+		},
+		{
+			"name": "level 1",
+			"value": "id1",
+			"children": [],
+			"last": false
+		},
+		{
+			"name": "level 1",
+			"value": "id1",
+			"children": [],
+			"last": false
+		},
+		{
+			"name": "level 1",
+			"value": "id1",
+			"children": [],
+			"last": false
+		},
+		{
+			"name": "level 1",
+			"value": "id1",
+			"children": [],
+			"last": false
+		}
+	]
+}
