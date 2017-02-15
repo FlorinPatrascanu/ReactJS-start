@@ -36,7 +36,7 @@ var Test = React.createClass({
     },
     
     
-    addToList: function(name , value) {
+    addToList: function(e, name , value) {
                   console.log(name + ", " + value);
     },
     
@@ -53,8 +53,11 @@ var Test = React.createClass({
            
                 <div className="col-md-6">
                    <div id="options-list">
-                        <OptionList addToList = {this.addToList.bind(this)} options = {options}/>
+                        <OptionList addToList = {this.addToList} options = {options}/>
                    </div>    
+                </div>
+                <div className="col-md-6">
+                    
                 </div>
                 
             </div>
@@ -68,14 +71,12 @@ var OptionList = React.createClass({
     
     addToList: function(e){
         e.preventDefault();
-//        console.log()
         var index = $(e.currentTarget).attr("data-index");
         var name = this.props.options[index].name;
         var value = this.props.options[index].value;
-
-//        console.log($(e.currentTarget).attr("data-index"));
+        console.log("child-name: " + name + " child-value: " + value);
         console.log(this.props.options[index]);
-//        this.props.addToList(name , value);
+        this.props.addToList(e, name , value);
         
     },
     
@@ -89,8 +90,8 @@ var OptionList = React.createClass({
                 
                     <div key={i} className="hasChildren">
                         <button className="open"><i className="fa fa-plus"></i></button>
-                        <button onClick = {this.addToList} data-index={i} className="btn btn-primary"> {item.name} - {item.value} </button>
-                        <OptionList addToList = {this.addToList} options = {options}/>
+                        <button onClick = {this.addToList} data-index={i} className="btn btn-primary">Name: {item.name} - Value: {item.value} </button>
+                        <OptionList addToList = {this.props.addToList} options = {options}/>
                     </div>
                 
             )
@@ -106,8 +107,7 @@ var OptionList = React.createClass({
     render: function() {
         
         var output = this.props.options;
-//        console.log(output);
-     
+
         return (
             <div className="children">
                 {output.map(this.eachItem)}
