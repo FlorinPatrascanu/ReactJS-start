@@ -37,7 +37,25 @@ var Test = React.createClass({
     
     
     addToList: function(e, name , value) {
-                  console.log(name + ", " + value);
+        console.log(name + ", " + value);
+        
+        var out = {
+            "name": name,
+            "value": value
+        };
+        
+        var results = this.state.data.results;
+        var data = this.state.data;
+        results.push(out);
+        data.results = results;
+        
+        console.log(results);
+        
+        this.setState({
+            data: data
+        })
+        
+        
     },
     
     
@@ -57,9 +75,39 @@ var Test = React.createClass({
                    </div>    
                 </div>
                 <div className="col-md-6">
-                    
+                   <div id="results-list">
+                        <OptionResults source = {this.state.data.results}/>
+                   </div>
                 </div>
                 
+            </div>
+        )
+    }
+});
+
+
+
+// option results
+
+var OptionResults = React.createClass({
+    
+    eachItem: function(item , i) {
+        return (
+            <div key = {i}>
+                <button className="btn btn-primary"> {item.name} - Value: {item.value}</button>
+            </div>
+        )
+    },
+    
+    render: function() {
+        
+        var output = this.props.source === undefined ? [] : [];
+   
+        
+        return (
+            <div>
+                <h1><center>Results:</center></h1>
+                {output.map(this.eachItem)}
             </div>
         )
     }
@@ -77,6 +125,7 @@ var OptionList = React.createClass({
         console.log("child-name: " + name + " child-value: " + value);
         console.log(this.props.options[index]);
         this.props.addToList(e, name , value);
+        
         
     },
     
