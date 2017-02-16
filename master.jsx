@@ -37,20 +37,30 @@ var Test = React.createClass({
     
     
     addToList: function(e, name , value) {
-        console.log(name + ", " + value);
+//        console.log(name + ", " + value);
         
         var out = {
             "name": name,
             "value": value
         };
         
+        
+        // get the results array
         var results = this.state.data.results;
+        
+        // get the data 
         var data = this.state.data;
+        
+        // push the recieved object to the empty results array
         results.push(out);
+        
+        // update the results array in the state
         data.results = results;
         
-        console.log(results);
+//        console.log(results);
         
+        
+        // update the state
         this.setState({
             data: data
         })
@@ -58,7 +68,30 @@ var Test = React.createClass({
         
     },
     
-    
+    removeFromList: function(e , i) {
+        e.preventDefault();
+        
+        // get event index
+        var index = $(e.currentTarget).attr("data-index");
+        
+        // get the results array
+        var results = this.state.data.results;
+        
+        // get the data
+        var data = this.state.data;
+        
+        // remove the item from the array
+        results.splice(index , 1);
+        
+        // update the results
+        data.results = results;
+        
+
+        // update the state
+        this.setState({
+            data: data
+        })
+    },
 
 
     
@@ -67,20 +100,30 @@ var Test = React.createClass({
 
 
         return (
-            <div className={this.props.class}>
-           
-                <div className="col-md-6">
-                   <div id="options-list">
-                        <OptionList addToList = {this.addToList} options = {options}/>
-                   </div>    
+                 <div id = "controller-wrapper">        
+                    <div className = "container-fluid">    
+                        <div className={this.props.class}>
+
+                            <div className="col-md-6 col-sm-6 col-xs-6" style = {{paddingRight: "0px" , borderRight: "0.2px solid black"}}>
+                               <div id="options-list">
+                                    <b>Options</b>
+                                    <OptionList addToList = {this.addToList} options = {options}/>
+                               </div>
+                               <button style = {{marginTop: "1rem"}} className="btn btn-primary">Save</button>                               
+                            </div>
+                            
+                            
+                            
+                            <div className="col-md-6 col-sm-6 col-xs-6" style = {{paddingLeft: "32px"}}>
+                               <div id="results-list">
+                                    <b>Results</b>
+                                    <OptionResults source = {this.state.data.results} removeItem = {this.removeFromList}/>
+                               </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div className="col-md-6">
-                   <div id="results-list">
-                        <OptionResults source = {this.state.data.results}/>
-                   </div>
-                </div>
-                
-            </div>
         )
     }
 });
@@ -88,25 +131,28 @@ var Test = React.createClass({
 
 
 // option results
-
 var OptionResults = React.createClass({
     
     eachItem: function(item , i) {
         return (
             <div key = {i}>
-                <button className="btn btn-primary"> {item.name} - Value: {item.value}</button>
+                <div className="items-container" > 
+                    {item.name}
+                    <span data-index={i} onClick = {this.props.removeItem} style = {{marginLeft: "1rem"}} className="fa fa-times"></span>
+                </div>
             </div>
         )
     },
     
     render: function() {
         
-        var output = this.props.source === undefined ? [] : [];
+        var output = this.props.source === undefined ? [] : this.props.source;
+//        console.log(output);
    
         
         return (
             <div>
-                <h1><center>Results:</center></h1>
+                
                 {output.map(this.eachItem)}
             </div>
         )
@@ -122,8 +168,8 @@ var OptionList = React.createClass({
         var index = $(e.currentTarget).attr("data-index");
         var name = this.props.options[index].name;
         var value = this.props.options[index].value;
-        console.log("child-name: " + name + " child-value: " + value);
-        console.log(this.props.options[index]);
+//        console.log("child-name: " + name + " child-value: " + value);
+//        console.log(this.props.options[index]);
         this.props.addToList(e, name , value);
         
         
@@ -139,15 +185,20 @@ var OptionList = React.createClass({
                 
                     <div key={i} className="hasChildren">
                         <button className="open"><i className="fa fa-plus"></i></button>
-                        <button onClick = {this.addToList} data-index={i} className="btn btn-primary">Name: {item.name} - Value: {item.value} </button>
+                        
+                        <div className="items-container" onClick = {this.addToList} data-index={i}>
+                            {item.name}
+                        </div>
                         <OptionList addToList = {this.props.addToList} options = {options}/>
                     </div>
                 
             )
         } else {
             return (
-                    <div key={i}>
-                       <button onClick = {this.addToList} className="btn btn-default" key={i} data-index={i} >{item.name} - {item.value}</button>
+                    <div key={i}>   
+                       <div className="items-container"  onClick = {this.addToList} key={i} data-index={i}>
+                           {item.name}
+                       </div>
                     </div>
             )
         }
@@ -159,7 +210,7 @@ var OptionList = React.createClass({
 
         return (
             <div className="children">
-                {output.map(this.eachItem)}
+                {output.map(this.eachItem)} 
             </div>
         );
     }
