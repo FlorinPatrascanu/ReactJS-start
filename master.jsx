@@ -3,7 +3,8 @@ var Test = React.createClass({
     
     getInitialState: function() {
         return {
-            data : {}
+            data : {},
+            searchString : ''
         }
     },
     
@@ -19,7 +20,7 @@ var Test = React.createClass({
         
     },
     componentDidMount: function(){
-        $('#options-list').children().removeClass("children");
+//        $('#search , #options').children().removeClass("children");
         $('body').on("click", "#options-list button.open", function(e){
             e.preventDefault();
 //            console.log($(this).parent().children(".children")[0]);
@@ -30,7 +31,7 @@ var Test = React.createClass({
     getDefaultProps: function() {
         return {
             text : 'From master component',
-            class : 'row myClass',
+            class : 'row',
             url : 'resources/test.json'
         }
     },
@@ -92,11 +93,45 @@ var Test = React.createClass({
             data: data
         })
     },
+    
+    handleInputChange: function(e) {
+        
+        var that = this;
+        
+        $.getJSON('resources/search.json' , function(result){
+           
+            console.log(result);
+           
+        }).done(function(response){
+            console.log("done");
+            
+            // get data object
+            var data = that.state.data;
+
+            // assign the response to the empty search array 
+            data.search = response;
+            
+
+            // update the state
+            that.setState({
+                data: data
+            })
+            
+        });
+        
+        this.setState({
+            searchString: e.currentTarget.value
+        });
+        
+    },
 
 
     
     render: function() {
         var options = this.state.data.options === undefined ? [] : this.state.data.options;
+        
+        var search = this.state.data.search === undefined ? [] : this.state.data.search;
+        
 
 
         return (
@@ -104,11 +139,38 @@ var Test = React.createClass({
                     <div className = "container-fluid">    
                         <div className={this.props.class}>
 
-                            <div className="col-md-6 col-sm-6 col-xs-6" style = {{paddingRight: "0px" , borderRight: "0.2px solid black"}}>
+                            <div className="col-md-6 col-sm-6 col-xs-6" style = {{borderRight: "0.2px solid black"}}>
                                <div id="options-list">
-                                    <b>Options</b>
-                                    <OptionList addToList = {this.addToList} options = {options}/>
+                                    
+                                        <ul className="nav nav-tabs" role="tablist">
+                                            <li role="presentation" className="active">
+                                               <a href="#options" aria-controls="options" role="tab" data-toggle="tab">Options</a>
+                                            </li>
+                                            <li role="presentation">
+                                               <a href="#search" aria-controls="search" role="tab" data-toggle="tab">Search</a>
+                                            </li>
+                                        </ul>
+                                        
+                                        <div className="tab-content">
+                                            <div role="tabpanel" className="tab-pane active" id="options">
+                                                   <OptionList addToList = {this.addToList} options = {options}/>
+                                            </div>
+                                            <div role="tabpanel" className="tab-pane" id="search">
+                                                <div className="controller-search">
+                                                    <input value={this.state.searchString}
+                                                           onChange={this.handleInputChange}
+                                                           className="form-control search-list-input" 
+                                                           type="text" 
+                                                           id="searchList" 
+                                                           placeholder="Search..."
+                                                    />
+                                                </div>
+                                                    <OptionList addToList = {this.addToList} options = {search}/>
+                                            </div>
+                                        </div>
+                                    
                                </div>
+                            
                                <button style = {{marginTop: "1rem"}} className="btn btn-primary">Save</button>                               
                             </div>
                             
@@ -151,8 +213,7 @@ var OptionResults = React.createClass({
    
         
         return (
-            <div>
-                
+            <div>    
                 {output.map(this.eachItem)}
             </div>
         )
